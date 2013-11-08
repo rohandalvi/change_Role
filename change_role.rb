@@ -74,10 +74,10 @@ end
           if(result!=nil)
           result.each{ |res|
             res.read
-            temp_array = process_array(res.Children.results)
-            temp_array.each{|element|
+            
+            res.Children.results.each{|element|
            
-            @child_array.push(element.strip)
+            @child_array.push(element.to_s.strip)
            
            }    
          } 
@@ -88,18 +88,6 @@ end
 
   end #end of function 
 
-  def process_array(array)
-    collectionsArray = Array.new
-    array.each{|arr|
-      collectionsArray.push(arr.to_s)
-      }
-    
-    
-    return collectionsArray
-    
-  end
-
-
   def get_team_members(projectName)
     
     
@@ -108,11 +96,11 @@ end
     result.each{|res|
       res.read
       @user_ref = res._ref
-      temp_array = process_array(res.UserPermissions.results)
-      temp_array.each{|project|
+      
+      res.UserPermissions.results.each{|project|
        
         flag=true
-        if project.start_with? ""
+        if project.to_s.start_with? "USD Portfolio"
             flag = false
             @processedCount += 1
             if(@processedCount%100==0)
