@@ -31,14 +31,11 @@ def initialize
       recursive_algorithm(res.Name)
 
       @parent_array.each{|project|
-      beginning = Time.now
-      puts "Now processing #{project}"
       get_project_ref(project.strip)
        
       if(@flag==true)
         get_team_members(project.strip)
       end
-        puts "Time elapsed: #{(Time.now - beginning)/60} seconds"
       }
       
       
