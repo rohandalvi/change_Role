@@ -21,7 +21,7 @@ def initialize
   @child_array = Array.new
   @parent_array = Array.new
   @count = true
-  result = build_query(:project,"Name,Children","(Name = \"Teams\")","Name Asc")
+  result = build_query(:project,"Name,Children","(Name = \"Teams\")","Name Asc") #This is the default project I am working with, so hard-coded.
   
   if(result!=nil)
     result.each{|res|
